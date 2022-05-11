@@ -52,7 +52,7 @@ Mainly used for i/o operations to server files from servers, delegate taks, serv
 Eg. Netflix uses Node.js to server files when requested. Node.js server fetches the files from server and sends it to the client browser on request.
 ## Desing Patterns
 
-Subject, Observer patther
+Subject, Observer pattern
 
 Node Event emitter.
 
