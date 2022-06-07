@@ -4,58 +4,33 @@
 This repo is created to Track and save my Node.js Developer course
 
 
-## Fundementals
+## Modules and Caching
 
-v8 Engine => Node.js API(fs,http,path,crypto) => bindings => libuv
+Modules are cached. So when required multiple times, it takes from the first time it was imported.
 
-Node.js bindings are C/C++ code to interact with machine level
+it can be checked in console.log(require.cache)
 
-libuv is async i/o library with code for unix and windows. Async i/o is done with thread pool (file system operations) or os (kernel)(network, server request, close connection)
+You cant edit required modules. Overriding the same functions as the required module.
 
+## Using index,js
 
+You can't just import a folder full of modules. 
 
-## Event loop
+To do so, use index.js in the folder. It is a special file which exports all the modules in the folder. When you point the path to the folder, it resolves to index.js of the folder.
 
-Has two parts - 
-1. Thread pool
-2. Operating System
+We dont have to use index.js. Keeping it simple is better, else it makes complicated module loading system.
 
+## Semantic versioning
 
-Thread pool by default has main thread (v8 + event loop) + 4 threads (1 task at a time for each thread);
+major.minor.patch
 
+major => incompatible api updates and not backward compatible
+minor => small changes and performance improvements
+patch => fixing security issues and vulnarabilities
 
-Async operations are done with Event loop. When each thread or os picks up a task when done notifies the event loop and callbacks gets pushed to callback queue where FIFO is applied to them.
+npm audit => will show all issues
+npm audit fix=>  will update packages to the stable version without vulnaribilities
 
-### Phases of Event loop
-
-Severl queues habdle several phases
-
-1. Timers => setTimeout, setInterval
-2. I/O Callbacks => file system operations
-3. setImmediate => execute callback ASAP when event loop gets notified
-4. close callbacks => close file, close network connections and perform its callbacks
-## Is Node.js multi-threaded?
-
-Node.js has javascript as its base which is synchronours and single threaded.
-
-But under the hood libuv uses the threads to handle asynchrounous events with threads. 
-
-That is the best part of Node.js where the programmer unlike in other languages don't need to worry about handling and managing threads. Its taken care by libuv.
-## What is Node.js best at?
-
-It is not good for CPU/GPU intensive or blocking applications such as video processing, machine learning.
-
-It is good as servers => DB connections, communications, authentication and authorization.
-
-Mainly used for i/o operations to server files from servers, delegate taks, serve data where i/o operations are very high.
-
-Eg. Netflix uses Node.js to server files when requested. Node.js server fetches the files from server and sends it to the client browser on request.
-## Desing Patterns
-
-Subject, Observer pattern
-
-Node Event emitter.
-
-Multiple observers can subscribe to one subject and react in its own way to the subscribed events.
-
-Please refer to the js file for the code and understanding.
+## Package.json
+Entire info of project, dependencies
+Package-lock.json => COmplete expanded info of project, packages, dependency tree info requried for platform to install and run the program
