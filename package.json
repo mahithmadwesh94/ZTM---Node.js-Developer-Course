@@ -1,0 +1,23 @@
+{
+  "name": "ztmnodejs",
+  "version": "1.0.0",
+  "description": "This repo is created to Track and save my Node.js Developer course",
+  "main": "planet-explore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahithmadwesh94/ZTM---Node.js-Developer-Course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mahithmadwesh94/ZTM---Node.js-Developer-Course/issues"
+  },
+  "homepage": "https://github.com/mahithmadwesh94/ZTM---Node.js-Developer-Course#readme",
+  "dependencies": {
+    "csv-parse": "^5.1.0"
+  }
+}
